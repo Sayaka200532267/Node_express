@@ -1,0 +1,19 @@
+<body style="background-image: url('{{backgroundImg}}');">
+    <h1>Project List</h1>
+
+    <ul>
+        {{#each cases}}
+            <li>
+                <p><strong>Username:</strong> {{this.username}}</p>
+                <p><strong>Title:</strong> {{this.title}}</p>
+                <p><strong>Description:</strong> {{this.description}}</p>
+                <p><strong>Created Date:</strong> {{this.created_date}}</p>
+                <p><strong>Due Date:</strong> {{this.due_date}}</p>
+                <p><strong>Company Name:</strong> {{this.company_name}}</p>
+                <p><strong>Company Email:</strong> {{this.company_email}}</p>
+                <p><strong>Person in Charge:</strong> {{this.person_in_charge}}</p>
+                <button onclick="{{this.file_storage_function}}">Store File</button>
+            </li>
+        {{/each}}
+    </ul>
+</body>

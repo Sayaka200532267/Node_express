@@ -1,0 +1,26 @@
+[
+    {
+      "id": "123456789",
+      "created_date": "2024-03-18",
+      "title": "E-commerce Website",
+      "description": "Developed a fully functional e-commerce platform using React.js and Node.js, integrated with payment gateways and order management systems.",
+      "due_date": "2024-06-30",
+      "company_name": "ABC Corporation",
+      "company_email": "contact@abccorporation.com",
+      "file_storage_function": "function storeFile(file)",
+      "person_in_charge": "Jane Doe",
+      "username": "Jack"
+    },
+    {
+      "id": "987654321",
+      "created_date": "2024-03-20",
+      "title": "Mobile Expense Tracker App",
+      "description": "Designed and developed a mobile app to track expenses and manage budgets, built with Flutter and Firebase.",
+      "due_date": "2024-05-15",
+      "company_name": "XYZ Tech",
+      "company_email": "info@xyztech.com",
+      "file_storage_function": "function storeFile(file)",
+      "person_in_charge": "John Smith",
+      "username": "Mary"
+    }
+]

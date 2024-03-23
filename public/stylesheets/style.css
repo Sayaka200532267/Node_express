@@ -1,0 +1,114 @@
+body {
+  padding: 50px;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+main {
+  flex: 1;
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;  
+  padding: 10px;
+  z-index: 1001; 
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+}
+header, footer {
+  background: linear-gradient(90deg, hsla(0, 85%, 56%, 1) 0%, hsla(21, 57%, 66%, 1) 100%);
+
+}
+
+
+
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+img {
+margin-top: 50px;
+}
+footer ul li {
+  display: inline;
+  margin-right: 10px;
+}
+button{
+  margin-left: 130px;
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(90deg, hsla(0, 85%, 56%, 1) 0%, hsla(21, 57%, 66%, 1) 100%);
+  border-radius: 20px;
+  font-size: 20px;
+  
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.m-5 {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  flex: 1;
+  margin-right: 20px; 
+}
+
+section h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.skill-section h2 {
+  margin-bottom: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.skill-list {
+  padding: 0;
+  display: flex;
+}
+
+.skill-list li {
+  margin: 0 10px;
+}
