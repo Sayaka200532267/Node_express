@@ -8,12 +8,12 @@ let user = new mongoose.Schema({
     },
     password: {
         type: String,
-        // required: true,
+        required: true,
         minLength: 8
     }
 });
 
-// indicate this model extends Passport Local Mongoose for auth
+
 user.plugin(plm);
 
 module.exports = mongoose.model('User', user);

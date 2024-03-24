@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const caseSchema = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true
-    },
     created_date: {
         type: Date,
         default: Date.now

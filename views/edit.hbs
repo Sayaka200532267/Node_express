@@ -1,0 +1,39 @@
+<h1>Edit Case</h1>
+
+<form action="/edit/{{cases._id}}" method="POST">
+    <fieldset>
+        <label for="title">Title: *</label>
+        <input name="title" id="title" required value="{{cases.title}}" />
+    </fieldset>
+    <fieldset>
+        <label for="description">Description: *</label>
+        <textarea name="description" id="description" required>{{cases.description}}</textarea>
+    </fieldset>
+    <fieldset>
+        <label for="due_date">Due Date: *</label>
+        <input type="date" name="due_date" id="due_date" required value="{{cases.due_date}}" />
+    </fieldset>
+    <fieldset>
+        <label for="company_name">Company Name: *</label>
+        <input name="company_name" id="company_name" required value="{{cases.company_name}}" />
+    </fieldset>
+    <fieldset>
+        <label for="company_email">Company Email: *</label>
+        <input type="email" name="company_email" id="company_email" required value="{{cases.company_email}}" />
+    </fieldset>
+    <fieldset>
+        <label for="file_storage_function">File Storage Function: *</label>
+        <input name="file_storage_function" id="file_storage_function" required value="{{case.file_storage_function}}" />
+    </fieldset>
+    <fieldset>
+        <label for="person_in_charge">Person in Charge: *</label>
+        <input name="person_in_charge" id="person_in_charge" required value="{{cases.person_in_charge}}" />
+    </fieldset>
+    <fieldset>
+        <label for="username">Username: *</label>
+        <input name="username" id="username" required value="{{cases.username}}" />
+    </fieldset>
+    <button type="submit" class="btn btn-info offset-4">
+        <i class="bi bi-plus-circle"></i> Save
+    </button>
+</form>

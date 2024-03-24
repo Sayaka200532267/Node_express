@@ -14,6 +14,10 @@ html, body {
 
 main {
   flex: 1;
+  padding-top: 120px; 
+  box-sizing: border-box;
+  min-height: calc(100vh - 60px); 
+  margin-bottom: 120px; 
 }
 
 header {
@@ -78,9 +82,10 @@ body {
   display: flex;
   justify-content: center;
 }
-.m-5 {
+.main-page {
   display: flex;
   align-items: center;
+  margin-bottom: 100px;
 }
 
 .content {
@@ -96,19 +101,3 @@ p {
   font-size: 20px;
 }
 
-.skill-section h2 {
-  margin-bottom: 10px;
-}
-
-li {
-  list-style: none;
-}
-
-.skill-list {
-  padding: 0;
-  display: flex;
-}
-
-.skill-list li {
-  margin: 0 10px;
-}

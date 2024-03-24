@@ -12,8 +12,13 @@
                 <p><strong>Company Name:</strong> {{this.company_name}}</p>
                 <p><strong>Company Email:</strong> {{this.company_email}}</p>
                 <p><strong>Person in Charge:</strong> {{this.person_in_charge}}</p>
-                <button onclick="{{this.file_storage_function}}">Store File</button>
-            </li>
+                <p><strong>File:</strong> 
+                    {{#if this.file_storage_function}}
+                        {{this.file_storage_function}}
+                    {{else}}
+                        No attachment
+                    {{/if}}
+                </p>
         {{/each}}
     </ul>
 </body>

@@ -1,0 +1,40 @@
+<body style="background-image: url('{{backgroundImg}}');">
+  
+<h1>Project List</h1>
+ <a href="/create" class="btn btn-info">
+    <i class="bi bi-skip-backward-fill"></i> Create New Case
+</a>
+<ul>
+        {{#each cases}}
+            <li>
+                <p><strong>Username:</strong> {{this.username}}</p>
+                <p><strong>Title:</strong> {{this.title}}</p>
+                <p><strong>Description:</strong> {{this.description}}</p>
+                <p><strong>Created Date:</strong> {{this.created_date}}</p>
+                <p><strong>Due Date:</strong> {{this.due_date}}</p>
+                <p><strong>Company Name:</strong> {{this.company_name}}</p>
+
+                <p><strong>Company Email:</strong> {{this.company_email}}</p>
+                <p><strong>Person in Charge:</strong> {{this.person_in_charge}}</p>
+                <p><strong>File:</strong> 
+                    {{#if this.file_storage_function}}
+                        {{this.file_storage_function}}
+                    {{else}}
+                        No attachment
+                    {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+
+
+{{#if user}}
+    <a href="/edit/{{case.id}}" class="btn btn-info">
+        <i class="bi bi-pencil-square"></i> Edit
+    </a>
+    <a href="/delete/{{case.id}}" class="btn btn-info"
+        onclick="return confirm('Are you sure you want to delete this case?');">
+        <i class="bi bi-x-circle"></i> Delete
+    </a>
+{{/if}}
+  
+</body>

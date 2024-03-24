@@ -5,32 +5,62 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let mongoose = require('mongoose');
 let dotenv = require('dotenv');
+let session = require('express-session');
+let passport = require('passport');
+let bodyParser = require('body-parser');
 
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
 
-
-let app = express();
 
 // Load environment variables before connecting to MongoDB
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
+let authRouter = require('./routes/auth');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let caseRouter = require('./routes/case');
+
+let app = express();
+
+app.use(express.urlencoded({ extended: false }));
+
+// Connect to MongoDB after dotenv configuration
+mongoose.connect(process.env.CONNECTION_STRING)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(() => console.log('MongoDB connection failed'));
+
+// Set up session middleware
+app.use(session({
+  secret: process.env.PASSPORT_SECRET,
+  resave: true,
+  saveUninitialized: false
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
+app.use(bodyParser.json());
 app.use(logger('dev'));
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 2. enable passport w/sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
+// 3. link passport to our User model & use local strategy by default
+let User = require('./models/user');
+passport.use(User.createStrategy());
+
+// 4. enable session reads / writes for passport users
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// Define routes
 app.use('/', indexRouter);
-app.use('/case', indexRouter);
-app.use('/register', indexRouter);
-
-
+app.use('/', authRouter); 
+app.use('/', usersRouter);
+app.use('/', caseRouter);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,12 +77,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// Connect to MongoDB after dotenv configuration
-mongoose.connect(process.env.CONNECTION_STRING)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(() => console.log('MongoDB connection failed'));
-
-
 
 module.exports = app;
