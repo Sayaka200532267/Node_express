@@ -11,7 +11,6 @@ let bodyParser = require('body-parser');
 
 
 
-// Load environment variables before connecting to MongoDB
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
