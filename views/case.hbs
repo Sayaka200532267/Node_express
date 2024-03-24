@@ -1,4 +1,4 @@
-<body style="background-image: url('{{backgroundImg}}');">
+<body>
     <h1>Project List</h1>
 <ul>
     {{#each cases}}
@@ -10,7 +10,7 @@
         <li><p><strong>Company Name:</strong> {{this.company_name}}</p></li>
         <li><p><strong>Company Email:</strong> {{this.company_email}}</p></li>
         <li><p><strong>Person in Charge:</strong> {{this.person_in_charge}}</p></li>
-        <li><p><strong>File:</strong> {{#if this.file_storage_function}}{{this.file_storage_function}}{{else}}No attachment{{/if}}</p></li>
+        <li><p><strong>File:</strong> {{this.file_storage_function}}</p></li>
     {{/each}}
 </ul>
 </body>

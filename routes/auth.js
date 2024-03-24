@@ -44,10 +44,5 @@ router.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
 }));
 
-router.get('/logout', (req, res) => {
-    req.logout(); // No need for a callback function
-    req.session.messages = []; // Clear session messages
-    res.redirect('/login'); // Redirect to login page after logout
-});
 
 module.exports = router;

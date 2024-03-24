@@ -1,3 +1,4 @@
+<body>
 <h1>{{title}}</h1>
 <h4 class="alert alert-secondary">Password: Min 8 chars, 1 digit, 1 upper, 1 lower</h4>
 <form method="post">
@@ -8,7 +9,6 @@
     <fieldset>
         <label for="password">Password: *</label>
         <input name="password" id="password" required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
-        <img src="/images/show.png" alt="Show/Hide" id="imgShowHide" onclick="showHide();" />    
     </fieldset> 
     <fieldset>
         <label for="confirm">Confirm: *</label>
@@ -19,3 +19,4 @@
         <i class="bi bi-person-fill-add"></i> Register
     </button>
 </form>
+</body>
