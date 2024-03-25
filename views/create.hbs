@@ -1,35 +1,35 @@
 <body>
-    <h1>Create New Case</h1>
-    <form id="caseForm" method="POST" action="/create" enctype="multipart/form-data">
-        <fieldset>
-            <label for="title">Title: *</label>
-            <input name="title" id="title" required />
-        </fieldset>
-        <fieldset>
-            <label for="description">Description: *</label>
-            <textarea name="description" id="description" required></textarea>
-        </fieldset>
-        <fieldset>
-            <label for="due_date">Due Date: *</label>
-            <input type="date" id="due_date" name="due_date" required>
-        </fieldset>
-        <fieldset>
-            <label for="company_name">Company Name: *</label>
-            <input name="company_name" id="company_name" required />
-        </fieldset>
-        <fieldset>
-            <label for="company_email">Company Email: *</label>
-            <input type="email" name="company_email" id="company_email" required />
-        </fieldset>
-        <fieldset>
-            <label for="person_in_charge">Person in Charge: *</label>
-            <input name="person_in_charge" id="person_in_charge" required />
-        </fieldset>
-        <fieldset>
-            <input name="username" id="username" type="hidden" value="{{user.username}}" />
-        </fieldset>
-        <button type="submit" class="btn btn-info">
-            <i class="fas fa-plus-circle"></i> Save
-        </button>
-    </form>
+<h1>Create New Case</h1>
+<form id="caseForm" method="POST" action="/create">
+    <fieldset>
+        <label for="title">Title: *</label>
+        <input name="title" id="title" required />
+    </fieldset>
+    <fieldset>
+        <label for="description">Description: *</label>
+        <textarea name="description" id="description" required></textarea>
+    </fieldset>
+    <fieldset>
+        <label for="due_date">Due Date: *</label>
+        <input type="date" id="due_date" name="due_date" required>
+    </fieldset>
+    <fieldset>
+        <label for="company_name">Company Name: *</label>
+        <input name="company_name" id="company_name" required />
+    </fieldset>
+    <fieldset>
+        <label for="company_email">Company Email: *</label>
+        <input type="email" name="company_email" id="company_email" required />
+    </fieldset>
+    <fieldset>
+        <label for="person_in_charge">Person in Charge: *</label>
+        <input name="person_in_charge" id="person_in_charge" required />
+    </fieldset>
+    <fieldset>
+<input name="username" id="username" type="hidden" value="{{user.username}}" />
+    </fieldset>
+    <button type="submit" class="btn btn-info">
+        <i class="fas fa-plus-circle"></i> Save
+    </button>
+</form>
 </body>

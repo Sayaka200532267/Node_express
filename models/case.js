@@ -26,10 +26,6 @@ const caseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    file_storage_function: {
-        type: String,
-        required: true
-    },
     person_in_charge: {
         type: String,
         required: true
