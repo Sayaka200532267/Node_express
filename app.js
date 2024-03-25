@@ -1,3 +1,4 @@
+// install reuired packages
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -10,33 +11,35 @@ let passport = require('passport');
 let bodyParser = require('body-parser');
 
 
-
+// set the environment variable
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
+// set the required routes
 let authRouter = require('./routes/auth');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let caseRouter = require('./routes/case');
-
 let app = express();
 
+// set the required middlewares
 app.use(express.urlencoded({ extended: false }));
 
-// Connect to MongoDB after dotenv configuration
+// connect to Mongo database
 mongoose.connect(process.env.CONNECTION_STRING)
   .then(() => console.log('Connected to MongoDB'))
   .catch(() => console.log('MongoDB connection failed'));
 
-// Set up session middleware
+
+  // set the required middlewares
 app.use(session({
   secret: process.env.PASSPORT_SECRET,
   resave: true,
   saveUninitialized: false
 }));
 
-// view engine setup
+// set the views and view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(bodyParser.json());
@@ -44,35 +47,37 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 2. enable passport w/sessions
+//  set the passport auth
 app.use(passport.initialize());
 app.use(passport.session());
 
-// 3. link passport to our User model & use local strategy by default
+// set the required routes
 let User = require('./models/user');
 passport.use(User.createStrategy());
 
-// 4. enable session reads / writes for passport users
+// set the passport auth
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-// Define routes
+
+// set the required routes
 app.use('/', indexRouter);
 app.use('/', authRouter); 
 app.use('/', usersRouter);
 app.use('/', caseRouter);
 
-// Catch 404 and forward to error handler
+
+// create 404 error
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// Error handler
+// create error handler
 app.use(function(err, req, res, next) {
-  // Set locals, only providing error in development
+
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // Render the error page
+
   res.status(err.status || 500);
   res.render('error');
 });

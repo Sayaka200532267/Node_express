@@ -1,4 +1,4 @@
-
+// set the required information for registering data
 const mongoose = require('mongoose');
 
 const caseSchema = new mongoose.Schema({

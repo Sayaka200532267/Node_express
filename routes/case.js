@@ -5,6 +5,7 @@ let Cases = require('../models/case');
 
 let authCheck = require('../authCheck');
 
+// get the details page
 router.get('/details', async(req, res) => {
 
     let Cases = require('../models/case');
@@ -16,7 +17,7 @@ router.get('/details', async(req, res) => {
     });
 });
 
-
+// render the details page
 router.get('/details/:_id', async (req, res) => {
     let Cases = require('../models/case');
     let cases = await Cases.find().sort({ 'date': -1 });
@@ -28,7 +29,7 @@ router.get('/details/:_id', async (req, res) => {
     });
 });
 
-
+// get the create page
 router.get('/create', authCheck, async (req, res) => {
     let Cases = require('../models/case');
     let cases = await Cases.find().sort({ 'date': -1 });
@@ -39,6 +40,7 @@ router.get('/create', authCheck, async (req, res) => {
     });
 });
 
+// post the create page
 router.post('/create', authCheck, async (req, res) => {
 
     await Cases.create(req.body);
@@ -46,7 +48,7 @@ router.post('/create', authCheck, async (req, res) => {
     res.redirect('/details');
   });
   
-
+// render the delete function
 router.get('/delete/:_id', authCheck, async (req, res) => {
      
     let cases = await Cases.findById(req.params._id);
@@ -63,6 +65,7 @@ router.get('/delete/:_id', authCheck, async (req, res) => {
     }
 });
 
+// get the edit page
 router.get('/edit/:_id', authCheck, async (req, res) => {
 
     let cases = await Cases.findById(req.params._id);
@@ -81,6 +84,7 @@ router.get('/edit/:_id', authCheck, async (req, res) => {
     }
 });
 
+// post the edit page
 router.post('/edit/:_id', authCheck, async (req, res) => {
  
     await Cases.findByIdAndUpdate(req.params._id, req.body);

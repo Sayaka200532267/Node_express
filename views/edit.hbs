@@ -1,3 +1,4 @@
+{{!-- create a edit page. --}}
 <body>
 <h1>Edit Case</h1>
 
@@ -27,8 +28,7 @@
         <input name="person_in_charge" id="person_in_charge" required value="{{cases.person_in_charge}}" />
     </fieldset>
     <fieldset>
-        <label for="username">Username: *</label>
-        <input name="username" id="username" required value="{{cases.username}}" />
+        <input name="username" id="username" required type="hidden" value="{{cases.username}}" />
     </fieldset>
     <button type="submit" class="btn btn-info offset-4">
         <i class="bi bi-plus-circle"></i> Save

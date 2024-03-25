@@ -1,3 +1,4 @@
+// set the required information for user auth
 let mongoose = require('mongoose');
 let plm = require('passport-local-mongoose');
 

@@ -1,14 +1,16 @@
-const express = require('express');
-const router = express.Router();
-const passport = require('passport');
-const User = require('../models/user');
+let express = require('express');
+let router = express.Router();
+let passport = require('passport');
+let User = require('../models/user');
 
+// get the register page
 router.get('/register', (req, res) => {
     res.render('register', { 
         title: 'Register',
     });
 });
 
+// post the register page
 router.post('/register', (req, res) => {
     User.register(new User({ username: req.body.username }), req.body.password, (err, newUser) => {
         if (err) {
@@ -29,6 +31,7 @@ router.post('/register', (req, res) => {
     });
 });
 
+// get the login page
 router.get('/login', (req, res) => {
     const messages = req.session.messages || [];
     req.session.messages = []; 
@@ -39,11 +42,13 @@ router.get('/login', (req, res) => {
     });
 });
 
+// post the login page
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/details',
     failureRedirect: '/login',
 }));
 
+// render the logout function
 router.get('/logout', (req, res) => {
     res.redirect('/login');
 });
